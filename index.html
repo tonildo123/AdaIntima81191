@@ -81,10 +81,17 @@
     </h6>
     <h6><p>visita tmabien nuestras paginas de facebook e instagram </p></h6>
     
-    <button type="button" class="d-flex justify-content-center button-facebook btn" disabled>Siguenos en Facebook</button>
+    <button type="button" class="d-flex justify-content-center button-facebook btn" 
+    disabled>Siguenos en Facebook</button>
     <br>
-    <button type="button" class="d-flex justify-content-center button-instagram btn" disabled>Siguenos en instagram</button>
+    <button type="button" class="d-flex justify-content-center button-instagram btn" 
+    disabled>Siguenos en instagram</button>
     <br>
+    <button type="button" class="d-flex justify-content-center  btn btn-success" 
+    data-toggle="modal" data-target="#exampleModal"
+    >COMPRAR  POR  MAYOR</button>
+    <br>
+    
     <div class="list-group">
       <a href="#first-category"  class="list-group-item">Promos numero 1 </a>
       <a href="#second-category" class="list-group-item">Promos numero 2 </a>
@@ -150,7 +157,7 @@
           <p class="card-text">Entra al siguiente enlace y contactanos o siguenos en nuestras redes sociales</p>
           <p class="card-text">Tambien puede seguir viendo en la seccion de abajo mas productos
                                 y si les gusta algo no dude en contactarse  </p>
-          <a href="https://api.whatsapp.com/send?phone=543813382029" class="btn btn-primary">Enviar Wathsapp</a>
+          <a href="https://api.whatsapp.com/send?phone=543813382029" class="btn btn-success">Enviar Wathsapp</a>
         </div>
         <div class="card-footer text-muted">
           381-338-2029 / Ella Lenceria
@@ -301,6 +308,39 @@
 
 </footer>
 <!-- Footer -->
+
+
+
+<!--the modal-->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Vamos a comprar por mayor!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Vamos a llenar el cuerpo del mensaje pre-escrito en wathsapp para agilizar el pedido
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+        <a href="https://api.whatsapp.com/send?phone=543813382029&text= HOLA!
+        Mis datos son:
+        Nombre:
+        Apellido:
+        Mi pedido:
+
+        Muchas Gracias!
+        " class="btn btn-success">Si, Vamos!!!</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end modal-->
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" 
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" 
