@@ -10,16 +10,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="Vista/css_tiendaonlinecatalogo.css" rel="stylesheet" type="text/css">   
     <title>EllaLenceria.com</title>
+    <script>
+      window.onload=function(){alert('Bienvenido a Ella Lenceria! ');}
+      
+    </script>
 </head>
-<!--
+
 <header>
     <div class="container"><h1>Lenceria - Compras por mayor y por menor </h1></div>
+    <canvas id='snow'>
+
+    </canvas>
 </header> 
--->
-
-
 
 <body>
+  <canvas id='snow'>
+
+  </canvas>
     
 <div class="container">
 
@@ -175,7 +182,7 @@
 
 <br>
 
-
+<!--
 <div class="row" >
   <div class="btn-group" role="group" aria-label="Basic example">
     <a href=”#first-category”  class="btn btn-danger btn-lg " role="link"> Modelos numero 1</a>
@@ -185,9 +192,20 @@
   </div>
 </div>
 
+-->
+
+<div class="row" id = fondoscuro>
+  <canvas id='snow'>
+
+  </canvas>
+</div>
+
+
 <!--Feliz navidad-->
 <!--EL primero -->
 <div class="row">
+  <canvas id='snow'>
+  </canvas>
   <div class="row" id="happy-christmas">
       <div class="col-md-3">
           <div class="card h-100" style="width: 18rem;">
@@ -235,6 +253,9 @@
 <!--El segundo de happy christmas-->
 
 <div class="row">
+  <canvas id='snow'>
+
+  </canvas>
   <div class="row" id="happy christas">
       <div class="col-md-3">
           <div class="card h-100" style="width: 18rem;">
@@ -281,6 +302,9 @@
 
 <!--el primer card-->
 <div class="row">
+  <canvas id='snow'>
+
+  </canvas>
     <div class="row" id="first-category">
         <div class="col-md-3">
             <div class="card h-100" style="width: 18rem;">
@@ -326,6 +350,9 @@
 </div>
 <!--Aqui el card de contacto-->
 <div class="row">
+  <canvas id='snow'>
+
+  </canvas>
     <div class="card text-center" id="cardcard">
         <div class="card-header">
            Ella Lenceria
@@ -342,6 +369,9 @@
 </div>
 <!--Segundo card-->
 <div class="row">
+  <canvas id='snow'>
+
+  </canvas>
     <div class="row" id="second-category">
         <div class="col-md-3">
             <div class="card h-100" style="width: 18rem;">
@@ -387,6 +417,9 @@
 
 <!--Tercer card-->
 <div class="row">
+  <canvas id='snow'>
+
+  </canvas>
     <div class="row" id="third-category">
         <div class="col-md-3">
             <div class="card h-100" style="width: 18rem;">
@@ -531,4 +564,69 @@
     crossorigin="anonymous"></script>  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!--script nevado -->
+<script>
+  var canvas = document.getElementById('snow');
+var ctx = canvas.getContext('2d');
+
+var w = canvas.width = window.innerWidth;
+var h = canvas.height = window.innerHeight;
+
+var num = 60;
+var tamaño = 40;
+var elementos = [];
+
+inicio();
+nevada();
+
+window.addEventListener("resize", function() {
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+});
+
+function inicio() {
+  for (var i = 0; i < num; i++) {
+    elementos[i] = {
+      x: Math.ceil(Math.random() * w),
+      y: Math.ceil(Math.random() * h),
+      toX: Math.random() * 10 - 5,
+      toY: Math.random() * 5 + 1,
+      tamaño: Math.random() * tamaño
+    }
+  }
+}
+
+function nevada() {
+  window.requestAnimationFrame(nevada); 
+  ctx.clearRect(0, 0, w, h);
+  for (var i = 0; i < num; i++) {
+    var e = elementos[i];
+    ctx.beginPath();
+    cristal(e.x, e.y, e.tamaño);
+    ctx.fill();
+    ctx.stroke();
+    e.x = e.x + e.toX;
+    e.y = e.y + e.toY;
+    if (e.x > w) { e.x = 0;}
+    if (e.x < 0) { e.x = w;}
+    if (e.y > h) { e.y = 0;}
+  }
+  //timer = setTimeout(nevada,10);
+}
+
+function cristal(cx, cy, long) {
+  ctx.fillStyle = "white";
+  ctx.lineWidth = long / 20;
+  ctx.arc(cx, cy, long / 15, 0, 2 * Math.PI);
+  for (i = 0; i < 6; i++) {
+    ctx.strokeStyle = "white";
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx + long / 2 * Math.sin(i * 60 / 180 * Math.PI),
+               cy + long / 2 * Math.cos(i * 60 / 180 * Math.PI));
+  }
+}
+  </script>
+
+
 </html>
